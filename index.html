@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function Links({ props }) {
+        return (
+          <ul className="nav-item">
+            {props.map((link, i) => (
+              <li className="nav-item" key={i}>
+                <a className="nav-link" href={link.link}>
+                  {link.description}
+                </a>
+              </li>
+            ))}
+          </ul>
+        );
+      }
+      const links = [
+        {
+          link: 'https://google.com',
+          description: 'Link to google.com',
+        },
+        {
+          link: 'https://bing.com',
+          description: 'Link to bing.com',
+        },
+      ];
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<Links props={links} />);
+    </script>
+  </body>
+</html>
